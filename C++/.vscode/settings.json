@@ -56,7 +56,8 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "02while实战": "c"
+        "02while实战": "c",
+        "ctime": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled", // 格式化时调整include的顺序（按字母排序）
 }
