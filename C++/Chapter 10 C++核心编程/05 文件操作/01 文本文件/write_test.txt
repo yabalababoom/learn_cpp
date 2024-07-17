@@ -1,0 +1,3 @@
+jim write start
+jim write 123456
+jim write end
