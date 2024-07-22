@@ -3,22 +3,16 @@
 #include <ctime>
 using namespace std;
 
+//多态的原理
 /*
-多态是C+面向对象三大特性之一
-多态分为两类
-    1.静态多态:"函数重载"和"运算符重载"属于静态多态, 复用函数名
-    2.动态多态:派生类和虚函数实现运行时多态(大部分是指动态多态)
-静态多态和动态多态区别:
-    2.静态多态的函数地址早绑定 - 编译阶段确定函数地址
-    1.动态多态的函数地址晚绑定 - 运行阶段确定函数地址
+加上virtual后, Animal内部有一个vfptr(virtual function pointer,虚函数(表)指针) 指向 vftable(virtual function table,虚函数表),
+表内记录了虚函数的地址
+
+当子类重写父类的虚函数, 子类中的虚函数表, 内部自动,  会替换成,  子类的虚函数地址
+
+当父类的指针或者引用指向子类对象时候,发生多态
+
 */
-
-// 动态多态满足条件:
-//1. 有继承关系
-//2. 子类重写父类的虚函数(如speak()函数的),子类的virtual可写可不写
-
-// 动态多态的使用
-//父类的指针或引用  执行子类对象  Animal &animal = cat/dog
 
 
 class Animal
@@ -35,6 +29,7 @@ class Cat : public Animal
 {
 
 public:
+    //重写  函数返回值类型  函数名参数列表 完全相同
     void speak()
     {
         cout << "Cats speaking" << endl;
@@ -68,8 +63,15 @@ void test01()
 }
 
 
+void test02()
+{
+    cout << "sizeof(Animal) : " << sizeof(Animal) << endl; // 有virtual: sizeof(Animal) : 8 ;  无virtual sizeof(Animal) : 1
+}
+
+
 int main(int argc, char const *argv[])
 {
-    test01();
+    // test01();
+    test02(); 
     return 0;
 }
