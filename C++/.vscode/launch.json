@@ -11,7 +11,7 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             // 这里修改为你电脑上安装(解压的文件 mingw64) 上的路径, bin 文件名加上 gdb.exe
             "miDebuggerPath": "D:\\msys64\\mingw64\\bin\\gdb.exe",
