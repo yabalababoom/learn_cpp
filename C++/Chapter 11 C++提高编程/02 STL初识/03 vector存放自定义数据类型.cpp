@@ -48,10 +48,43 @@ void test01()
 
 
 
+//存放自定义数据类的指针
+
+void test02()
+{
+    vector<Person*> v;
+    Person p1("aaa", 10);
+    Person p2("bbb", 20);
+    Person p3("ccc", 30);
+    Person p4("ddd", 40);
+    Person p5("fff", 50);
+
+    //向容器中添加数据
+    v.push_back(&p1);
+    v.push_back(&p2);
+    v.push_back(&p3);
+    v.push_back(&p4);
+    v.push_back(&p5);
+
+    //遍历容器中的数据
+    // for (vector<Person*>::iterator it = v.begin(); it != v.end(); it++)
+    // {
+    //     cout << "::name: " << (*it)->m_Name << "  age: " << (*it)->m_Age << endl;  // 通过指针拿到属性:->
+    // }
+
+    //遍历容器中的数据
+    for (vector<Person*>::iterator it = v.begin(); it != v.end(); it++)
+    {
+        Person *p = (*it);
+        cout << "!!name: " << p->m_Name << "  age: " << p->m_Age << endl;  // 通过指针拿到属性:->
+    }
+}
+
 
 int main()
 {
-    test01();
+    // test01();
+    test02();
     system("pause");
     return 0;
 } 
